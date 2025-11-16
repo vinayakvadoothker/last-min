@@ -33,7 +33,7 @@ export default function SignupPage() {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-
+ 
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
