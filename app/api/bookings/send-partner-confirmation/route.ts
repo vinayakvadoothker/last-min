@@ -194,7 +194,7 @@ export async function POST(request: Request) {
 
     console.log('Partner email sent successfully:', emailResult)
 
-    return NextResponse.json({ success: true, emailId: emailResult.id })
+    return NextResponse.json({ success: true })
   } catch (error: any) {
     console.error('Error sending partner confirmation email:', error)
     console.error('Error details:', {

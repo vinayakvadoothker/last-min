@@ -88,12 +88,16 @@ export function DateTimePicker({
 
   const minDate = min ? new Date(min) : undefined
   const maxDate = max ? new Date(max) : undefined
-  const disabledDates = minDate || maxDate
-    ? {
-        before: minDate ? new Date(minDate) : undefined,
-        after: maxDate ? new Date(maxDate) : undefined,
-      }
-    : undefined
+  
+  // Build disabled dates object - react-day-picker requires both properties to be Date if present
+  let disabledDates: { before: Date; after: Date } | { before: Date } | { after: Date } | undefined = undefined
+  if (minDate && maxDate) {
+    disabledDates = { before: minDate, after: maxDate }
+  } else if (minDate) {
+    disabledDates = { before: minDate }
+  } else if (maxDate) {
+    disabledDates = { after: maxDate }
+  }
 
   return (
     <div className="space-y-2">

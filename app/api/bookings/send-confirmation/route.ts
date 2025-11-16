@@ -177,7 +177,7 @@ export async function POST(request: Request) {
 
     console.log('Email sent successfully:', emailResult)
 
-    return NextResponse.json({ success: true, emailId: emailResult.id })
+    return NextResponse.json({ success: true })
   } catch (error: any) {
     console.error('Error sending booking confirmation email:', error)
     console.error('Error details:', {
