@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
-import { LogOut, User, Calendar, MapPin, Building2, Shield, Menu, X, Sparkles } from 'lucide-react'
+import { LogOut, User, Calendar, MapPin, Building2, Shield, Menu, X, Sparkles, Zap } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export function Nav() {
@@ -91,10 +91,15 @@ export function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur-sm opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                <Zap className="h-5 w-5 text-white" />
+              </div>
+            </div>
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-purple-700 transition-all">
               Last-Min
             </div>
-            <Sparkles className="h-4 w-4 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
 
           {/* Desktop Navigation */}
